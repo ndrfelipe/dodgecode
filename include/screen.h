@@ -168,6 +168,7 @@ void screenDestroy();
  * @param x x position
  * @param y y position
  */ 
+void screenDrawBorders();
 
 void screenGotoxy(int x, int y);
 

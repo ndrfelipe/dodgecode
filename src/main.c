@@ -1,89 +1,51 @@
-/**
- * main.h
- * Created on Aug, 23th 2023
- * Author: Tiago Barros
- * Based on "From C to C++ course - 2002"
-*/
-
+#include "../include/keyboard.h"
+#include "../include/screen.h"
+#include "../include/timer.h"
+#include "../include/game.h"
+#include <stdio.h>
 #include <string.h>
 
-#include "screen.h"
-#include "keyboard.h"
-#include "timer.h"
+#define LARGURA 50
+int main() {
+    char nickname[20];
 
-int x = 34, y = 12;
-int incX = 1, incY = 1;
-
-void printHello(int nextX, int nextY)
-{
-    screenSetColor(CYAN, DARKGRAY);
-    screenGotoxy(x, y);
-    printf("           ");
-    x = nextX;
-    y = nextY;
-    screenGotoxy(x, y);
-    printf("Hello World");
-}
-
-void printKey(int ch)
-{
-    screenSetColor(YELLOW, DARKGRAY);
-    screenGotoxy(35, 22);
-    printf("Key code :");
-
-    screenGotoxy(34, 23);
-    printf("            ");
-    
-    if (ch == 27) screenGotoxy(36, 23);
-    else screenGotoxy(39, 23);
-
-    printf("%d ", ch);
-    while (keyhit())
-    {
-        printf("%d ", readch());
+    // === 1) Tela de entrada do nick ===
+    // Terminal normal, mostra o que digita
+    printf("Digite o seu nick: ");
+    if (fgets(nickname, sizeof(nickname), stdin)) {
+        nickname[strcspn(nickname, "\n")] = 0;
     }
-}
 
-int main() 
-{
-    static int ch = 0;
-    static long timer = 0;
+    // Aguarda ENTER para ir ao menu
+    printf("Pressione ENTER para ir ao menu...");
+    getchar();
 
-    screenInit(1);
-    keyboardInit();
-    timerInit(50);
+    // === 2) Tela de menu (modo cli-lib) ===
+    screenInit(1);       // inicializa com bordas
+    keyboardInit();      // esconde cursor, etc.
+    screenClear();
+    screenDrawBorders();
 
-    printHello(x, y);
-    screenUpdate();
+    // Nome do jogo
+    screenGotoxy( (LARGURA/2) - 10, 5 );
+    printf("=== O JOGO DO ESTAGIÁRIO ===");
 
-    while (ch != 10 && timer <= 100) //enter or 5s
-    {
-        // Handle user input
-        if (keyhit()) 
-        {
-            ch = readch();
-            printKey(ch);
-            screenUpdate();
-        }
+    // Saudação personalizada
+    screenGotoxy(2, 8);
+    printf("Olá, %s!", nickname);
 
-        // Update game state (move elements, verify collision, etc)
-        if (timerTimeOver() == 1)
-        {
-            int newX = x + incX;
-            if (newX >= (MAXX -strlen("Hello World") -1) || newX <= MINX+1) incX = -incX;
-            int newY = y + incY;
-            if (newY >= MAXY-1 || newY <= MINY+1) incY = -incY;
+    // Instrução de início
+    screenGotoxy(2, 10);
+    printf("Pressione ENTER para começar...");
 
-            printHello(newX, newY);
+    // Espera ENTER
+    while (getchar() != '\n');
 
-            screenUpdate();
-            timer++;
-        }
-    }
+    // Limpa a tela e inicia o jogo
+    screenClear();
+    iniciar_jogo(nickname);
 
     keyboardDestroy();
     screenDestroy();
-    timerDestroy();
-
     return 0;
 }
