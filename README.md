@@ -1,6 +1,12 @@
 # "Life'Stag"
 
 Bem-vindo ao "Life'Stag"! Um jogo de arcade desafiador e divertido, executado diretamente no seu terminal. Prepare-se para testar seus reflexos, desviando de obstáculos e coletando recompensas para alcançar a maior pontuação possível.
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/111b3d73-3b36-41bf-8dd6-5d70231ce0a0" alt="Texto alternativo da imagem" width="500">
+</div>
+
+
+
 
 ## Índice
 
@@ -19,6 +25,7 @@ Bem-vindo ao "Life'Stag"! Um jogo de arcade desafiador e divertido, executado di
 * [Funções Principais do Jogo](#funções-principais-do-jogo)
 * [Equipe do Projeto](#equipe-do-projeto)
 * [Informações da Disciplina](#informações-da-disciplina)
+
 
 ## Sobre o Jogo
 
@@ -54,14 +61,21 @@ O jogador pode se mover apenas horizontalmente:
         2.  Atualização das posições verticais dos obstáculos e recompensas existentes (movendo-os para cima).
         3.  Verificação de colisões entre o jogador e os itens.
         4.  Redesenho completo da tela, exibindo a posição atual do jogador, obstáculos e recompensas, além de informações como pontuação.
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/1c8ea12d-a7c3-46f2-a864-a997882d5bef" alt="Texto alternativo da imagem" width="500">
+</div>
+
 
 ### Fim de Jogo
 O jogo é encerrado automaticamente quando o jogador colide com um obstáculo pela quinta vez.
 Ao encerrar:
 1.  A tela do terminal é limpa.
-2.  Uma mensagem de "Game Over" é exibida.
-3.  O ranking atualizado é mostrado.
-4.  O jogo aguarda que o usuário pressione a tecla `ENTER` para finalizar a execução.
+2.  O ranking atualizado é mostrado.
+3.  O jogo aguarda que o usuário pressione a tecla `Q` para finalizar a execução.
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/2a786e42-e115-4c89-830a-fb0dd51fd813" alt="Texto alternativo da imagem" width="500">
+</div>
 
 ## Sistema de Pontuação
 
