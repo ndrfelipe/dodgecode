@@ -26,6 +26,7 @@ Bem-vindo ao "Life'Stag"! Um jogo de arcade desafiador e divertido, executado di
 * [Equipe do Projeto](#equipe-do-projeto)
 * [Informações da Disciplina](#informações-da-disciplina)
 
+
 ## Sobre o Jogo
 
 "Life'Stag" é um jogo desenvolvido em C para ser executado em uma interface de linha de comando (CLI). No papel de um Estagiário, o jogador deve se mover horizontalmente na parte superior da tela para desviar de Obstáculos e coletar Recompensas. Esses itens surgem da parte inferior da tela e se movem verticalmente em direção ao topo.
@@ -63,6 +64,7 @@ O jogador pode se mover apenas horizontalmente:
 <div align="center">
   <img src="https://github.com/user-attachments/assets/1c8ea12d-a7c3-46f2-a864-a997882d5bef" alt="Texto alternativo da imagem" width="500">
 </div>
+
 
 ### Fim de Jogo
 O jogo é encerrado automaticamente quando o jogador colide com um obstáculo pela quinta vez.
